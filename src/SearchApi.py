@@ -19,7 +19,7 @@ def lambda_handler(event, context):
         "query": {
             "multi_match": {
                "query": event['queryStringParameters']['q'],
-                "fields": ["Title"]
+                "fields": ["Title","Description"]
             }
         }
     }
@@ -37,4 +37,6 @@ def lambda_handler(event, context):
     }
 
     response['body'] = r.text
+    print('Response body: {0}'.format(r.text))
+    return responseponse body: {0}'.format(r.text))
     return response

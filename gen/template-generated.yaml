@@ -18,3 +18,21 @@ Resources:
           Type: SNS
           Properties:
             Topic: arn:aws:sns:us-west-2:489967615225:postcore-api
+  SearchApi:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.6
+      Handler: SearchApi.lambda_handler
+      CodeUri:
+        Bucket: postcore-bucket
+        Key:
+          Fn::Sub: Postcore.SearchApi/SearchApi.zip
+      MemorySize: 128
+      Timeout: 3
+      Role: arn:aws:iam::489967615225:role/lambda-basic-execution-role
+      Events:
+        PostcoreSearchApi:
+          Type: Api
+          Properties:
+            Path: /search/{q}
+            Method: get
