@@ -1,5 +1,6 @@
 import boto3
 import json
+import os
 from elasticsearch import Elasticsearch, RequestsHttpConnection
 
 def connectES(esEndPoint):
@@ -15,7 +16,9 @@ def connectES(esEndPoint):
         print("Unable to connect to {0}".format(esEndPoint))
         print(E)
         exit(3) 
-esClient = connectES("[Elasticsearch endpoint]")
+
+endpoint = os.environ['endpoint']
+esClient = connectES(endpoint)
 
 def lambda_handler(event, context):
     message = event['Records'][0]['Sns']['Message']

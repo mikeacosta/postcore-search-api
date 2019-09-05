@@ -34,5 +34,5 @@ Resources:
         PostcoreSearchApi:
           Type: Api
           Properties:
-            Path: /search/{q}
+            Path: /{q}
             Method: get
