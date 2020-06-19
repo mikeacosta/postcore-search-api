@@ -12,8 +12,8 @@ if os.path.exists(searchApiPath):
     os.remove(searchApiPath)    
 
 # create zip archives
-shutil.make_archive('pkg/SearchWorker', 'zip', '../../virtualenvs/postcore-searchapi/lib/python3.6/site-packages')
-shutil.make_archive('pkg/SearchApi', 'zip', '../../virtualenvs/postcore-searchapi/lib/python3.6/site-packages')
+shutil.make_archive('pkg/SearchWorker', 'zip', '/home/mike/virtualenvs/postcore-searchapi/lib/python3.6/site-packages')
+shutil.make_archive('pkg/SearchApi', 'zip', '/home/mike/virtualenvs/postcore-searchapi/lib/python3.6/site-packages')
 
 # add src files
 os.system('zip -ur -j pkg/SearchWorker.zip src/SearchWorker.py')
